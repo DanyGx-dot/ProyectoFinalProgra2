@@ -1,0 +1,13 @@
+{
+  "1": [
+    {
+      "monto": 675.0,
+      "mes": 10,
+      "año": 2025,
+      "metodo_pago": "Tarjeta",
+      "referencia": "",
+      "fecha_pago": "2025-10-01 22:06",
+      "estado": "completado"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "danny",
+    "edad": 21,
+    "carrera": "Ingeniería de Sistemas",
+    "promedio": 0.8,
+    "semestre": 1,
+    "email": "danny@gmail.com",
+    "activo": true
+  },
+  {
+    "id": 2,
+    "nombre": "detm",
+    "edad": 22,
+    "carrera": "Medicina",
+    "promedio": 4.0,
+    "semestre": 2,
+    "email": "detm@gmail.com",
+    "activo": true
+  }
+]

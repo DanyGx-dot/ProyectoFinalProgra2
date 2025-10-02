@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "nombre": "dany",
+    "edad": 21,
+    "carrera": "Ingeniería de Sistemas",
+    "promedio": 0.7,
+    "semestre": 6,
+    "email": "emanuel@gmail.com",
+    "activo": true
+  }
+]

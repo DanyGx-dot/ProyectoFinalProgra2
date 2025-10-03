@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Académico</title>
+    <style>
+        :root {
+            --primary-red: #D32F2F;
+            --primary-blue: #1976D2;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-red) 100%);
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        /* Card Styles */
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .card-red {
+            border-top-color: var(--primary-red);
+        }
+        
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-title-red {
+            color: var(--primary-red);
+        }
+        
+        .card-icon {
+            font-size: 24px;
+        }
+        
+        /* Assignment Styles */
+        .assignment {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .assignment:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .assignment-checkbox {
+            margin-right: 15px;
+        }
+        
+        .assignment-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .assignment-info p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .assignment-button {
+            margin-left: auto;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .assignment-button:hover {
+            background-color: #1565C0;
+        }
+        
+        /* Link Styles */
+        .info-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .info-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Job Offers */
+        .job-offers {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .job-card {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+        }
+        
+        .job-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .job-company {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .job-view {
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .job-view:hover {
+            text-decoration: underline;
+        }
+        
+        /* Sidebar */
+        .sidebar-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .help-links {
+            list-style: none;
+        }
+        
+        .help-links li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .help-links li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .help-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        
+        .help-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Portal Académico</div>
+                <div class="user-info">
+                    <span>Buenas noches, Danny</span>
+                    <div class="user-avatar">D</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <div class="content-left">
+                <div class="card">
+                    <h2 class="card-title">
+                        <span class="card-icon">📚</span>
+                        Asignaciones Pendientes
+                    </h2>
+                    
+                    <div class="assignment">
+                        <div class="assignment-checkbox">
+                            <input type="checkbox" id="assignment-1">
+                        </div>
+                        <div class="assignment-info">
+                            <h3>Asignación 22025</h3>
+                            <p>Fecha límite: 15 de diciembre, 2023</p>
+                        </div>
+                        <button class="assignment-button">Asignar cursos</button>
+                    </div>
+                    
+                    <p>Recuerde que primero debe pagar su inscripción. Puede encontrar más información en el siguiente enlace.</p>
+                    <a href="#" class="info-link">Más información sobre pagos →</a>
+                </div>
+                
+                <div class="card card-red">
+                    <h2 class="card-title card-title-red">
+                        <span class="card-icon">💼</span>
+                        Bolsa de Empleo
+                    </h2>
+                    <p>Consulte las últimas ofertas</p>
+                    
+                    <div class="job-offers">
+                        <div class="job-card">
+                            <div class="job-title">Desarrollador Frontend</div>
+                            <div class="job-company">Tech Solutions S.A.</div>
+                            <a href="#" class="job-view">Ver detalles →</a>
+                        </div>
+                        
+                        <div class="job-card">
+                            <div class="job-title">Analista de Datos</div>
+                            <div class="job-company">DataCorp International</div>
+                            <a href="#" class="job-view">Ver detalles →</a>
+                        </div>
+                        
+                        <div class="job-card">
+                            <div class="job-title">Especialista en Marketing Digital</div>
+                            <div class="job-company">Agencia Creativa Plus</div>
+                            <a href="#" class="job-view">Ver detalles →</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="info-link" style="color: var(--primary-red);">Ver todas las ofertas →</a>
+                </div>
+            </div>
+            
+            <div class="content-right">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">
+                        <span>❓</span>
+                        Ayuda
+                    </h3>
+                    <p>Si tiene alguna duda o necesita asistencia, contáctenos:</p>
+                    
+                    <ul class="help-links">
+                        <li>
+                            <a href="#">
+                                <span>📞</span>
+                                Soporte telefónico
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>✉️</span>
+                                Envíe un correo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>💬</span>
+                                Chat en vivo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>📖</span>
+                                Preguntas frecuentes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">
+                        <span>📅</span>
+                        Próximos eventos
+                    </h3>
+                    <ul class="help-links">
+                        <li>
+                            <a href="#">
+                                <span>12 Dic</span>
+                                Feria de empleo virtual
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>18 Dic</span>
+                                Taller de preparación de CV
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>20 Dic</span>
+                                Charla: Nuevas tendencias tech
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Portal Académico</h3>
+                    <p>Tu plataforma integral para gestión académica y oportunidades profesionales.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Asignaciones</a></li>
+                        <li><a href="#">Bolsa de empleo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Soporte</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Términos de servicio</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Portal Académico. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
